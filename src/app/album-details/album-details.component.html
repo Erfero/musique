@@ -1,0 +1,15 @@
+<div class="sticky">
+    <div class="card text-bg-secondary anime mt-5" *ngIf="album">
+        <img class="card-img-top font-img" src="{{ album.url }}" alt="Group Music">
+        <div class="card-body">
+            <h5 class="card-title">{{ album.title }}</h5>
+            <p class="cart-text">Artist Name : {{ album.name }} </p>
+            <a type="
+            button" (click)="play(album)" class="btn btn-warning" href="#{{ album.id }}"> Play</a>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action text-bg-dark" *ngFor="let detail of songs">{{ detail
+                }}</li>
+        </ul>
+    </div>
+</div>
