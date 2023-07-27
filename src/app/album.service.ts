@@ -22,6 +22,9 @@ export class AlbumService {
   getAlbumList(id: string): List | undefined {
     return this._albumsList.find(list => list.id === id);
   }
+  // hideAlbum(id: string): Album | undefined {
+  //   return this._albums: Album[] = [];
+  // }
   count() {
     return this._albums.length;
   }

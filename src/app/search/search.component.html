@@ -1,8 +1,10 @@
+<div class="bg-black">
 
-
-
-<form class="form-inline my-2 my-lg-0 format" (ngSubmit)="onSubmit(formSearch)" #formSearch="ngForm">
-    <input name="word" ngModel required class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="word" (ngModelChange)="onChangeEmit($event)">
-    <!-- Directive disabled pour désactiver le formulaire si il n'est pas valide -->
-    <button [disabled]="formSearch.invalid" class="btn btn-outline-warning my-2 my-sm-0 " type="submit">Search</button>
-</form>
+    <form class="form-inline my-2 my-lg-0 format" (ngSubmit)="onSubmit(formSearch)" #formSearch="ngForm">
+        <input name="word" ngModel required class="form-control mr-sm-2" type="search" placeholder="Search"
+            aria-label="Search" [(ngModel)]="word" (ngModelChange)="onChangeEmit($event)">
+        <!-- Directive disabled pour désactiver le formulaire si il n'est pas valide -->
+        <button [disabled]="formSearch.invalid" class="btn btn-outline-warning my-2 my-sm-0 "
+            type="submit">Search</button>
+    </form>
+</div>

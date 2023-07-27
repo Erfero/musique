@@ -1,1 +1,39 @@
-<p>album-description works!</p>
+<div [@fadeInAnimation]>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" routerLink="/albums">🎶 Like Music</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/albums">Home
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active">Se connecter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" *ngIf="album">
+        <div class="card-header">
+            {{ album.ref }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ album.title }}</h5>
+            <p class="card-text">{{ album.name }}</p>
+            <p class="card-text">{{ album.description }}</p>
+            <p class="card-text"> Duration: {{ album.duration || 0 }} min</p>
+            <p class="card-text"> Like: {{ album.like || 0 }}</p>
+            <a *ngFor="let item of album.tags" class="btn btn-outline-primary mx-1" href="#" role="button">{{
+                item }}</a><br>
+            <br><img class="card-img-top font-img" src="{{ album.url }}" alt="Group Music" />
+            
+        </div>
+    </div><!-- .card -->
+</div>

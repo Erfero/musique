@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Album } from '../album';
 import { AlbumService } from '../album.service';
+import { fadeInAnimation } from '../animation-module';
 
 @Component({
   selector: 'app-album-description',
   templateUrl: './album-description.component.html',
-  styleUrls: ['./album-description.component.css']
+  styleUrls: ['./album-description.component.css'],
+  animations: [fadeInAnimation]
 })
 
 export class AlbumDescriptionComponent implements OnInit {
 
-  songs: string[] | undefined = [];
 
   album: Album | undefined;
   constructor(
@@ -20,13 +21,15 @@ export class AlbumDescriptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.route);
+    
+    
     // permet de récupérer l'identifiant
-    const id = this.route.snapshot.paramMap.get('id');
+    // const id: string = this.route.snapshot.params["albumid"];
+    const id = this.route.snapshot.params[("id")];
     // TODO récupérez le détail d'un album
-    if (this.album) {
-      this.songs = this.aS.getAlbumList(this.album.id)?.list;
-      console.log(this.songs);
+      this.album = this.aS.getAlbum(id);
+      console.log(this.album); 
 
     }
   }
-}
